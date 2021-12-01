@@ -1,4 +1,4 @@
-## Banknote Authentification
+## Binary Classification
 
 ### Membres :
 

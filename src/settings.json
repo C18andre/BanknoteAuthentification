@@ -1,0 +1,7 @@
+{
+    "paths" : {
+        "banknote" : "src/data/{}/data_banknote_authentication.txt",
+        "kidney" : "src/data/{}/kidney_disease.csv"
+    },
+    "datatypes" : ["raw","bronze","gold"]
+}
