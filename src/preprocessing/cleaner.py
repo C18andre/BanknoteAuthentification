@@ -17,7 +17,7 @@ def convert_cat_to_num(data,features):
     return data
 
 
-def missing_value(data,num_function=np.mean,cat_function="Unknown",drop_cat=False,drop_num=False):
+def missing_value(data,num_function="mean",cat_function="Unknown",drop_cat=False,drop_num=False):
     """
     data: pandas dataframe
     num_function: function to apply for replacing "NaN" in numerical columns
@@ -25,7 +25,14 @@ def missing_value(data,num_function=np.mean,cat_function="Unknown",drop_cat=Fals
     boolean drop_cat: if True, drop the rows with missing value in categorical features
     boolean drop_num : if True, drop the rows with missing value in numerical features
     """
-
+    # Création de la fonction
+    if num_function == "mean" :
+        num_function = np.mean
+    if num_function == "min" :
+        num_function= np.min
+    else :
+        num_function = np.mean
+    
     num_f = data.select_dtypes(exclude="object").columns
     cat_f = data.select_dtypes(include="object").columns
     
