@@ -1,4 +1,4 @@
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder,OneHotEncoder
 from collections import defaultdict
 
 def label_encoder(data) :
@@ -11,11 +11,7 @@ def label_encoder(data) :
     if len(columns_to_label) == 0 :
         return data,{}
     for col in columns_to_label :
-        print(col)
-        #label_encoder_dico[col] = LabelEncoder()
-        #label_encoder_dico[col].fit(data[col])
-
-        #print(label_encoder_dico[col].fit_transform(data[col]))
-        #data[col] = label_encoder_dico[col].fit_transform(data[col])
+        label_encoder_dico[col].fit(data[col])
+        data[col] = label_encoder_dico[col].transform(data[col])
     return data,label_encoder_dico
 
