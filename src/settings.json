@@ -1,6 +1,6 @@
 {
     "paths" : {
-        "banknote" : "src/data/data_banknote_authentication.txt",
+        "banknote" : "src/data/data_banknote_authentication.csv",
         "kidney" : "src/data/kidney_disease.csv"
     }
 }
