@@ -14,6 +14,7 @@ def convert_cat_to_num(data,features):
             return np.nan
     for f in features:
         data[f] = data[f].apply(go_float)
+        data[f] = data[f].astype(float)
     return data
 
 
@@ -25,7 +26,9 @@ def missing_value(data,num_function="mean",cat_function="Unknown",drop_cat=False
     boolean drop_cat: if True, drop the rows with missing value in categorical features
     boolean drop_num : if True, drop the rows with missing value in numerical features
     """
-    # Création de la fonction
+    if "id" in data.columns:
+        data.drop("id",axis=1,inplace=True)
+    # Création de la fonction num
     if num_function == "mean" :
         num_function = np.mean
     if num_function == "min" :
@@ -40,6 +43,7 @@ def missing_value(data,num_function="mean",cat_function="Unknown",drop_cat=False
         data.dropna(subset=num_f,inplace=True)
     else:
         data[num_f] = data[num_f].fillna(num_function)
+    
     if drop_cat:
         data.dropna(subset=cat_f,inplace=True)
     else:
