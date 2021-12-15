@@ -15,6 +15,7 @@ from preprocessing.cleaner import convert_cat_to_num,missing_value
 from preprocessing.test import test as p_test
 from preprocessing.label import label_encoder
 from preprocessing.split import split
+from visualization.maps import heatmap
 
 ############################################ Pipeline ############################################
 # Preprocessing
@@ -24,6 +25,9 @@ clean_data_2 = missing_value(clean_data_1,drop_num=True)            # Fill the m
 p_test(clean_data_2,data)                                           # Test the length of data after cleaning process
 label_data,label_dico = label_encoder(clean_data_2)                 # Encode strings data
 X_train, X_test, y_train, y_test = split(label_data,TARGET_NAME)
+
+# Vizualisation
+heatmap(clean_data_2,TARGET_NAME)
 
 # Models
 

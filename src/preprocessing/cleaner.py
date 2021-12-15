@@ -26,6 +26,8 @@ def missing_value(data,num_function="mean",cat_function="Unknown",drop_cat=False
     boolean drop_cat: if True, drop the rows with missing value in categorical features
     boolean drop_num : if True, drop the rows with missing value in numerical features
     """
+    if "id" in data.columns:
+        data.drop("id",axis=1,inplace=True)
     # Création de la fonction num
     if num_function == "mean" :
         num_function = np.mean
