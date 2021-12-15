@@ -1,7 +1,7 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-def numeric_features_distribution(data,features,bandwith=1):
+def numeric_features_distribution(data,features,bandwith=1): #Patrick
     """
     Use kde algorithm to plot the distribution of the numerical features
 
@@ -17,7 +17,7 @@ def numeric_features_distribution(data,features,bandwith=1):
         plt.title(f)
         sns.kdeplot(data[f],bw=bandwith)
 
-def categorical_features_histograms(data,features):
+def categorical_features_histograms(data,features): #Patrick
     """
     Use kde algorithm to plot the distribution of the numerical features
 
@@ -32,7 +32,7 @@ def categorical_features_histograms(data,features):
         plt.title(f)
         sns.countplot(x=f,data=data)
         
-def numeric_features_distribution_per_class(data,features,target_column,bandwith=1):
+def numeric_features_distribution_per_class(data,features,target_column,bandwith=1): #Alexandre
     """
     Use kde algorithm to plot the distribution of the numerical features
 

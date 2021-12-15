@@ -1,6 +1,6 @@
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
-def normalization(data,features,mode=0):
+def normalization(data,features,mode=0): #Patrick
     """
     Normalized the numerical features of the dataset
 

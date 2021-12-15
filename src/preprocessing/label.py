@@ -1,7 +1,7 @@
 from sklearn.preprocessing import LabelEncoder,OneHotEncoder
 from collections import defaultdict
 
-def label_encoder(data) :
+def label_encoder(data) : #Clément
     """
     data : Data to label
     Return labellized data and the corresponding dictionnary

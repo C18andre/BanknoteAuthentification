@@ -1,7 +1,7 @@
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
-def PCA_feature_reduction(data,variance=0.95):
+def PCA_feature_reduction(data,variance=0.95): #Alexandre
     """
     Readuce the feature space and keep the desierde variability in data
     data: dataframe
@@ -12,7 +12,7 @@ def PCA_feature_reduction(data,variance=0.95):
     
     return X_reduced
 
-def plot_2D(data,target):
+def plot_2D(data,target): #Alexandre
     """
     Use PCA to plot the data in 2D
     data:dataframe

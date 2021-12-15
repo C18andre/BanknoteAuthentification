@@ -1,7 +1,7 @@
 from sklearn.model_selection import GridSearchCV
 
 
-def hyperparameters_tuning(model,params,X_train,y_train,cv=5):
+def hyperparameters_tuning(model,params,X_train,y_train,cv=5): #Alexandre
     """
     Perform Grid Search Cv on a model regarding the provided list of parameters
         return a dict with the scores of each combination

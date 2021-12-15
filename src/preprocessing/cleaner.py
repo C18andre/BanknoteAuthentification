@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 
-def convert_cat_to_num(data,features):
+def convert_cat_to_num(data,features): #Alexandre
     """
     data: pandas dataframe
     features: the categorical features that we want to convert in numeric features
@@ -18,7 +18,7 @@ def convert_cat_to_num(data,features):
     return data
 
 
-def missing_value(data,num_function="mean",cat_function="Unknown",drop_cat=False,drop_num=False):
+def missing_value(data,num_function="mean",cat_function="Unknown",drop_cat=False,drop_num=False): #Alexandre/Clément
     """
     data: pandas dataframe
     num_function: function to apply for replacing "NaN" in numerical columns

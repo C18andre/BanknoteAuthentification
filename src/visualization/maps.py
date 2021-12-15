@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 
-def nan_map(data):
+def nan_map(data): #Patrick
     """
     return a figure to detect the Nan values
     """
@@ -12,7 +12,7 @@ def nan_map(data):
     plt.show()
 
 
-def heatmap(data,target) :
+def heatmap(data,target) : #Clément
     """
     Create a heatmap of the correlation between all the parameters
     """
