@@ -1,7 +1,7 @@
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
-def PCA(data,variance=0.95):
+def PCA_feature_reduction(data,variance=0.95):
     """
     Readuce the feature space and keep the desierde variability in data
     data: dataframe
