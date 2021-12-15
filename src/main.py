@@ -1,11 +1,13 @@
 ## Main 
-import json
-with open("src/settings.json") as file:
-            settings = json.load(file)
-
 ######################################## HyperParameters ########################################
 CLASS_NAME = "class"
-DATA_NAME = "banknote"
+DATA_NAME = "kidney"
+# DATA_NAME = "banknote"
+FEATURES = ["id","age","bp","sg","al","su","bgr","bu","sc","sod","pot","hemo","pcv","wc","rc"]
+# FEATURES = ["variance","skewness","curtosis","entropy"]
+import json
+with open("src/settings.json") as file:
+            settings = json.load(file) # Retrieve paths 
 
 ############################################ Imports ############################################
 import pandas as pd
@@ -16,11 +18,14 @@ from preprocessing.split import split
 
 ############################################ Pipeline ############################################
 # Preprocessing
-data = pd.read_csv(settings["paths"][DATA_NAME])
-clean_data = missing_value(data)
-p_test(clean_data,data)
-label_data,label_dico = label_encoder(data)
-X_train, X_test, y_train, y_test = split(data,CLASS_NAME)
+data = pd.read_csv(settings["paths"][DATA_NAME])                    # Read the csv file
+clean_data_1 = convert_cat_to_num(data,FEATURES)                    # Convert object datatype to float when its possible
+clean_data_2 = missing_value(clean_data_1)                          # Fill the missing values
+print(data.dtypes)
+print(clean_data_1.dtypes)
+#p_test(clean_data_2,data)                                           # Test the length of data after cleaning process
+#label_data,label_dico = label_encoder(clean_data_2)                 # Encode strings data
+#X_train, X_test, y_train, y_test = split(label_data,CLASS_NAME)
 
 # Models
 

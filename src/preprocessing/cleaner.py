@@ -14,6 +14,7 @@ def convert_cat_to_num(data,features):
             return np.nan
     for f in features:
         data[f] = data[f].apply(go_float)
+        data[f] = pd.to_numeric(data[f], downcast='float')
     return data
 
 

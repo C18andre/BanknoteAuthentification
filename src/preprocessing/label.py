@@ -7,10 +7,15 @@ def label_encoder(data) :
     Return labellized data and the corresponding dictionnary
     """
     columns_to_label = data.select_dtypes(include="object").columns
-    dico_le = defaultdict(LabelEncoder)
+    label_encoder_dico = defaultdict(LabelEncoder)
     if len(columns_to_label) == 0 :
         return data,{}
     for col in columns_to_label :
-        data[col] = dico_le[col].fit_transform(data[col])
-    return data,dico_le
+        print(col)
+        #label_encoder_dico[col] = LabelEncoder()
+        #label_encoder_dico[col].fit(data[col])
+
+        #print(label_encoder_dico[col].fit_transform(data[col]))
+        #data[col] = label_encoder_dico[col].fit_transform(data[col])
+    return data,label_encoder_dico
 
