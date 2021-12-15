@@ -21,5 +21,5 @@ def heatmap(data,target) :
     cols = matrice.nlargest(k,target)[target].index
     cm = np.corrcoef(data[cols].values.T)
     f, ax = plt.subplots(figsize=(10, 5))
-    hm = sns.heatmap(cm, annot=True, square=True,annot_kws={'size': 9}, yticklabels=cols.values, xticklabels=cols.values)
+    hm = sns.heatmap(cm, annot=True, square=True,linewidths=.5,annot_kws={'size': 9}, yticklabels=cols.values, xticklabels=cols.values)
     plt.show()
