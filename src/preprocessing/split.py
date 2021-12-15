@@ -1,6 +1,6 @@
 from sklearn.model_selection import train_test_split
 
-def split(data,target,test_size=0.10) :
+def split(data,target,test_size=0.10) : #Clément
     """
     X : numpy, data
     Y : numpy, target

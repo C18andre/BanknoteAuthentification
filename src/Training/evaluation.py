@@ -1,7 +1,7 @@
 from sklearn.metrics import f1_score, confusion_matrix, classification_report
-from sklearn.model_selection import learning_curve
 
-def cla_evaluation(model,X_test,y_test):
+
+def cla_evaluation(model,X_test,y_test): #Alexandre
     """
     For a classification problem, return classic performance indicators
 
@@ -11,7 +11,7 @@ def cla_evaluation(model,X_test,y_test):
     """
 
 
-    y_pred = model.predict(X_test.dropna())
+    y_pred = model.predict(X_test)
     
     print(confusion_matrix(y_test,y_pred))
     print(classification_report(y_test,y_pred))
