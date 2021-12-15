@@ -7,7 +7,7 @@ def nan_map(data):
     """
     return a figure to detect the Nan values
     """
-    plt.figure(figsize=(20,10))
+    plt.figure(figsize=(10,5))
     sns.heatmap(data.isna(),cbar=False,cmap="Greys")
     plt.show()
 
@@ -20,6 +20,6 @@ def heatmap(data,target) :
     k = min(len(data.columns),10) # Nombre de variables à garder dans la HeatMap
     cols = matrice.nlargest(k,target)[target].index
     cm = np.corrcoef(data[cols].values.T)
-    f, ax = plt.subplots(figsize=(12, 6))
+    f, ax = plt.subplots(figsize=(10, 5))
     hm = sns.heatmap(cm, annot=True, square=True,annot_kws={'size': 9}, yticklabels=cols.values, xticklabels=cols.values)
     plt.show()
