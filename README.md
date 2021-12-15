@@ -4,7 +4,7 @@
 
 - Alexandre GIRAUD
 - Clément ANDRÉ
-- Patrick NJEUKMAN
+- Patrick NJEUKAM
 
 ### Data :
 
