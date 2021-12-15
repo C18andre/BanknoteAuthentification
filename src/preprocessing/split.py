@@ -1,6 +1,6 @@
 from sklearn.model_selection import train_test_split
 
-def split(data,target,test_size=0.2,train_size=0.8) :
+def split(data,target,test_size=0.10) :
     """
     X : numpy, data
     Y : numpy, target
@@ -10,4 +10,4 @@ def split(data,target,test_size=0.2,train_size=0.8) :
         raise ValueError
     Y = data[target]
     X = data.drop(target,axis=1)
-    return train_test_split(X,Y,test_size=0.33)
+    return train_test_split(X,Y,test_size=test_size)

@@ -3,12 +3,12 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 
-def Nan_map(data):
+def nan_map(data):
     """
     return a figure to detect the Nan values
     """
     plt.figure(figsize=(20,10))
-    sns.heatmap(data.isna(),cbar=False)
+    sns.heatmap(data.isna(),cbar=False,cmap="Greys")
     plt.show()
 
 
@@ -17,7 +17,7 @@ def heatmap(data,target) :
     Create a heatmap of the correlation between all the parameters
     """
     matrice = data.corr()
-    k = 10 # Nombre de variables à garder dans la HeatMap
+    k = min(len(data.columns),10) # Nombre de variables à garder dans la HeatMap
     cols = matrice.nlargest(k,target)[target].index
     cm = np.corrcoef(data[cols].values.T)
     f, ax = plt.subplots(figsize=(12, 6))

@@ -3,7 +3,7 @@ from numpy.lib.function_base import average
 from sklearn.model_selection import cross_val_score
 
 
-def Train_models(models,X_train,X_test,y_train,y_test,cv=5):
+def train_models(models,X_train,X_test,y_train,y_test,cv=5):
     """
     Train several model and return a report of their accuracies.
         perf_train: Performance of each model on train set
@@ -25,7 +25,7 @@ def Train_models(models,X_train,X_test,y_train,y_test,cv=5):
         scores = cross_val_score(m, X_train, y_train, cv=cv)
         perf_train[name] = [scores.mean(), scores.std()]
 
-        perf_test[name] = m.scores(X_test,y_test)
+        perf_test[name] = m.score(X_test,y_test)
     
     return perf_train, perf_test
 
