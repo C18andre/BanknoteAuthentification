@@ -19,6 +19,7 @@ from visualization.maps import heatmap,nan_map
 from sklearn.svm import SVC
 from training.hyperparameters_tuning import hyperparameters_tuning
 from training.train_models import train_models
+from sklearn.ensemble import RandomForestClassifier
 
 ############################################ Pipeline ############################################
 # Preprocessing
@@ -39,11 +40,19 @@ heatmap(clean_data_2,TARGET_NAME)
 svm = SVC(C=10,kernel="radius")
 parameters_svc = {'kernel':('linear', 'rbf'), 'C':[1, 10]}
 
+rfc = RandomForestClassifier(random_state=0)
+parameters_rfc = {'bootstrap': [True, False],
+ 'max_depth': [10, 20, 30, 40, 50,None],
+ 'max_features': ['auto', 'sqrt'],
+ 'n_estimators': [10,20,50,100]}
+
 #Fine tuning parameters
 
-logs, best_svm = hyperparameters_tuning(svm,parameters_svc,X_train,y_train,cv=5)
+logs_svm, best_svm = hyperparameters_tuning(svm,parameters_svc,X_train,y_train,cv=5)
+logs_rfc, best_rfc = hyperparameters_tuning(rfc,parameters_rfc,X_train,y_train,cv=5)
+
 #Training
-Models = {"SVM":best_svm}
+Models = {"SVM":best_svm,"Rfc":best_rfc}
 
 perf_train, perf_test = train_models(Models,X_train,X_test,y_train,y_test,cv=5)
 

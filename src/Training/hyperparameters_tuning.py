@@ -12,11 +12,12 @@ def hyperparameters_tuning(model,params,X_train,y_train,cv=5):
     y_train: Target
     cv: number of cross-fold
     """
-
+    logs_grid = {}
 
     grid = GridSearchCV(model, params,cv=cv)
     grid.fit(X_train,y_train)
 
-    print(grid.best_params_)
-
-    return grid.cv_results_['mean_test_score'], grid.best_estimator_
+    print("Best combination of parameters is :",grid.best_params_)
+    for i,p in enumerate(grid.cv_results_["params"]):
+        logs_grid[str(p)] = grid.cv_results_["mean_test_score"][i]
+    return logs_grid, grid.best_estimator_

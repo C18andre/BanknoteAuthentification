@@ -8,7 +8,7 @@ def nan_map(data):
     return a figure to detect the Nan values
     """
     plt.figure(figsize=(10,5))
-    sns.heatmap(data.isna(),cbar=False,cmap="Greys")
+    sns.heatmap(data.isna(),cbar=False)
     plt.show()
 
 
